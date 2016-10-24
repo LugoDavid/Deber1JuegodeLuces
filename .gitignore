@@ -1,0 +1,91 @@
+int contador;  // DECLARAR CONTADOR
+int leds1 [14]={0,1,2,3,4,5,6,7,8,9,10,11,12,13}; //DECLARAR MATRIZ DE LEDS
+int leds2 [14]={13,12,11,10,9,8,7,6,5,4,3,2,1,0}; //DECLARAR MATRIZ DE LEDS, CAMBIANDO POSICIÓN
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(0,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (1,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode(2,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (3,OUTPUT);//DECLARAR PIN COMO SALIDA 
+  pinMode(4,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (5,OUTPUT);//DECLARAR PIN COMO SALIDA
+  pinMode(6,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (7,OUTPUT);//DECLARAR PIN COMO SALIDA  
+  pinMode(8,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (9,OUTPUT);//DECLARAR PIN COMO SALIDA 
+  pinMode(10,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (11,OUTPUT);//DECLARAR PIN COMO SALIDA 
+  pinMode(12,OUTPUT); //DECLARAR PIN COMO SALIDA
+  pinMode (13,OUTPUT);//DECLARAR PIN COMO SALIDA
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  luces1();        //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO 
+  delay(300);       // DURACIÓN
+  leds ();        //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  encender();     //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  leds ();        //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  luces2();       //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(200);       // DURACIÓN
+  leds ();        //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  encender();     //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  leds ();        //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  luces3();       //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  encender();     //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+  leds ();        //LLAMAR MÉTODO PARA LA SALIDA POR EL PUERTO
+  delay(300);       // DURACIÓN
+}
+void leds (){     //MÉTODO
+  contador=0;     //INICIALIZAR CONTADOR;
+  for(;contador<14;contador++){   //CONDICIÓN MEDIANTE FOR
+    digitalWrite(leds1[contador],LOW);  //APAGADO DE TODOS LOS LEDS
+    }
+}
+void encender (){        //MÉTODO
+  contador=0;             //INICIALIZAR CONTADOR
+  for(;contador<14;contador++){     //CONDICIÓN MEDIANTE CICLO FOR
+    digitalWrite(leds1[contador],HIGH);   //ENCENDIDO DE TODOS LOS LEDS
+    }
+}
+void luces1 (){     //MÉTODO
+  contador=0;       // INICIALIZAR CONTADOR
+  for(;contador<14;contador++)   // CONDICIÓN MEDIANTE CICLO FOR 
+  { contador=contador+1;          // SALTO DE POSICIÓN 
+    digitalWrite(leds1[contador],HIGH); // ENCENDIDO DE LEDS1 DE ACUERDO A LA POSICIÓN 
+    delay (300);                        // DURACIÓN
+    digitalWrite(leds2[contador],HIGH); // ENCENDIDO DE LEDS2 DE ACUERDO A LA POSICIÓN  
+    delay (300);                    //DURACIÓN
+  }
+}
+void luces2 (){    // MÉTODO 
+  contador=7;         // INICIALIZAR CONTADOR 
+  for(;contador<14;contador++){     // CONDICIÓN MEDIANTE CICLO FOR
+    digitalWrite(leds1[contador],HIGH);    // ENCENDIDO DE LEDS DESDE LA MITAD DE LA MATRIZ
+    delay(300);                             //DURACIÓN
+    }
+   contador=0;        //NUEVO VALOR AL CONTADOR
+  for(;contador<14;contador++){     // CONDICIÓN MEDIANTE CICLO FOR
+    digitalWrite(leds1[contador],HIGH);     // ENCENDIDO DE LA OTRA MITAD DE LEDS DE LA MATRIZ
+    delay(300);     // DURACIÓN
+  }
+}
+void luces3(){   //MÉTODO 
+  contador=0;    // INICIALIZACIÓN DE CONTADOR
+  for(;contador<14;contador++){      //CONDICIÓN MEDIANTE CICLO FOR
+    digitalWrite(leds1[contador],HIGH);  // ENCENDIDO DE LEDS
+    delay(200);                          // DURACIÓN 
+    digitalWrite(leds1[contador-2],LOW);  // APAGADO DE LEDS RETRASADO CON 2 POSICIONES 
+    delay(200);                           //DURACIÓN 
+    }
+  
+  }
